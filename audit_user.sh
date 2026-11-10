@@ -5,6 +5,9 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+LOGFILE="/var/log/audit_users.log"
+
+{
 printf "%-15s | %-6s | %-25s | %-30s | %-20s\n" "UTILISATEUR" "UID" "DERNIÈRE CONNEXION" "EXPIRATION MOT DE PASSE" "SHELL"
 printf "%s\n" "------------------------------------------------------------------------------------------------------------------------"
 
@@ -25,3 +28,4 @@ awk -F: '($3 >= 1000 && $3 < 65535) || $3 == 0 {print $1}' /etc/passwd | while r
 
     printf "%-15s | %-6s | %-25s | %-30s | %-20s\n" "$user" "$uid" "$last_login" "$exp_date" "$shell"
 done
+} | tee -a "$LOGFILE"
