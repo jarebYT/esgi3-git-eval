@@ -25,7 +25,7 @@ echo ""
 # 3. Utilisation de l'espace disque (ANOMALIE VOLONTAIRE POUR L'ÉTAPE 8)
 echo "--- [3/3] UTILISATION DES DISQUES ---"
 # ERREUR : Affichage brut en octets sans unités (B1) et mauvaise colonne extraite
-df -B1 | awk '{print $1, $3}'
+df -h -T --exclude-type=tmpfs --exclude-type=devtmpfs
 echo ""
 
 echo "=================================================="
