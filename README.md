@@ -21,7 +21,6 @@ Automatic merge failed; fix conflicts and then commit the result.
     Inspection des marqueurs de conflit dans audit_users.sh :
     Bash
 
-    <<<<<<< HEAD
     printf "========================================================================================================================\n"
     printf "%-15s | %-6s | %-25s | %-30s | %-20s\n" "COMPTE USER" "UID" "DERNIERE CONNEXION" "EXPIRATION MDP" "SHELL APPLICATIF"
     ...
@@ -31,7 +30,7 @@ Automatic merge failed; fix conflicts and then commit the result.
     printf "%-15s | %-6s | %-25s | %-30s | %-20s\n" "UTILISATEUR" "UID" "DERNIÈRE CONNEXION" "EXPIRATION MOT DE PASSE" "SHELL"
     ...
     } | tee -a "$LOGFILE"
-    >>>>>>> feature/journalisation
+    
 
     Arbitrage et fusion manuelle :
 
