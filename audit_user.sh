@@ -24,4 +24,4 @@ awk -F: '($3 >= 1000 && $3 < 65535) || $3 == 0 {print $1}' /etc/passwd | while r
     [ -z "$exp_date" ] && exp_date="Indéfini"
 
     printf "%-15s | %-6s | %-25s | %-30s | %-20s\n" "$user" "$uid" "$last_login" "$exp_date" "$shell"
-done < /etc/shadow
+done
