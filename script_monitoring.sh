@@ -1,12 +1,12 @@
 #!/bin/bash
 # ==============================================================================
 # Script : surveillance.sh
-# Rôle   : Surveillance système (CPU, Mémoire RAM, Espace Disque) - Fonctionnalité A[cite: 1]
-# Auteur : Étudiant 1[cite: 1]
+# Rôle   : Surveillance système (CPU, Mémoire RAM, Espace Disque)
+# Auteur : Étudiant 1
 # ==============================================================================
 
 echo "=================================================="
-echo "          RAPPORT DE SURVEILLANCE SYSTÈME        "
+echo "         RAPPORT DE SURVEILLANCE SYSTÈME          "
 echo "=================================================="
 echo "Date et heure : $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
@@ -22,10 +22,9 @@ echo "--- [2/3] UTILISATION DE LA MÉMOIRE RAM ---"
 free -h
 echo ""
 
-# 3. Utilisation de l'espace disque (ANOMALIE VOLONTAIRE POUR L'ÉTAPE 8)
+# 3. Utilisation de l'espace disque (Correction du bug d'extraction)
 echo "--- [3/3] UTILISATION DES DISQUES ---"
-# ERREUR : Affichage brut en octets sans unités (B1) et mauvaise colonne extraite
-df -h -T --exclude-type=tmpfs --exclude-type=devtmpfs
+df -h --exclude-type=tmpfs --exclude-type=devtmpfs | awk 'NR==1 || /^\// {print}'
 echo ""
 
 echo "=================================================="
