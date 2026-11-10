@@ -1,3 +1,10 @@
+IDENTIFICATION OBLIGATOIRE : indiquez explicitement la correspondance entre le nom, le prénom et le
+pseudonyme GitHub de chaque membre :
+
+BERNARD Luca lxquaver Étudiant B
+VANNEUVILLE Alexandre jarebYT Étudiant C
+MONET--PRINGUER Mathis Mathismwat Étudiant A 
+
 ## 🔀 Gestion et Résolution de Conflit Git
 
 Cette section documente la simulation d'un conflit de fusion (*merge conflict*) survenu lors du développement parallèle de fonctionnalités sur le script `audit_users.sh`.
