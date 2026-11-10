@@ -18,7 +18,7 @@ echo "-----------------------------------"
 
 for service in "${SERVICES[@]}"; do
     # V1 : En Bash avec 'set -e', systemctl is-active renvoie un code 3 si le service est arrêté, ce qui stoppe brutalement le script (anomalie pour le Hotfix).
-    status=$(systemctl is-active "$service")
+    status=$(systemctl is-active "$service" || true)
     echo "Service [$service] : $status"
 done
 
