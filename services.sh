@@ -17,7 +17,9 @@ echo "Date : $(date '+%Y-%m-%d %H:%M:%S')"
 echo "-----------------------------------"
 
 for service in "${SERVICES[@]}"; do
-    # V1 : En Bash avec 'set -e', systemctl is-active renvoie un code 3 si le service est arrêté, ce qui stoppe brutalement le script (anomalie pour le Hotfix).
+    # systemctl is-active renvoie un code non nul (3) si le service est arrêté.
+    # Avec 'set -e' cela stopperait le script : '|| true' neutralise ce code
+    # tout en conservant l'état affiché (active, inactive, failed...).
     status=$(systemctl is-active "$service" || true)
     echo "Service [$service] : $status"
 done
